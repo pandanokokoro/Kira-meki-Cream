@@ -1,0 +1,414 @@
+@charset "utf-8";
+
+//-----------------------------------------------------
+// scss: 変数設定
+//-----------------------------------------------------
+
+// カンプ / コンテンツ幅の指定
+$sp-full-width: 390;  // スマホ用のカンプ幅
+$pc-full-width: 1536;    // PC用のカンプ幅
+$pc-content-width: 1100; // PC用のカンプのコンテンツ幅(ガイド線の幅)
+
+// ブレークポイント設定
+// スマホ:
+//    0px ~ 768px未満 -> スマホ用のカンプをベースにvwで実装
+// タブレット:
+//    768px ~ PCコンテンツ幅未満 -> PC用のカンプをベースにvwで実装。予算の多い案件ではタブレット用のカンプが提供される場合もある。
+// PC:
+//    PCコンテンツ幅以上 -> PC用のカンプをベースにpx(rem)で実装
+$breakpoint-md: 768;
+$breakpoint-lg: $pc-content-width;
+
+// 本番用か否か？本番用の場合は1にする。
+// 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
+$production: 1;
+
+
+//-----------------------------------------------------
+//  scss: ブレークポイント関数
+//-----------------------------------------------------
+
+$breakpoints: (
+    "md": "screen and (min-width: #{$breakpoint-md}px)",
+    "lg": "screen and (min-width: #{$breakpoint-lg}px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+    }
+}
+//-----------------------------------------------------
+//  scss: 変換関数群
+//-----------------------------------------------------
+
+// SP用: vwへの変換
+@function vw($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $sp-full-width);
+}
+
+// タブレット用: vwへの変換
+@function vwt($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+
+    @return calc($px * 100vw / $pc-content-width);
+}
+
+// PC用: pxをremに変換
+@function px2Rem($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+    @return calc($px / 16) * 1rem;
+}
+
+// PC用: pxをvwに変換
+// ヘッダーなどコンテンツ幅ベースではなくかんぷ幅ベースでvwを使いたい場合に使用。
+// あまり使わない。
+@function vwp($px) {
+    @if $production !=1 {
+        @return $px * 1px;
+    }
+    @return calc($px * 100vw / $pc-full-width);
+}
+
+/*!
+global
+------------------------------
+*/
+
+/* color */
+$white: #fff;
+$black: #000;
+$azureblue: #0071ce;
+$palegreen: #f4ffe8;
+$paleblue: #C6f0fe;
+$darkgrey: #444;
+$mintgreen: #00afbf;
+$palegrey:#eee;
+$paleblue-light: #dbf7f9;
+$lightgrey: #00000029;
+$palepurple: #f0f4ff;
+$blacksecond: #111;
+$bgreen: #5dd5ab;
+$greenblue: #46c4db;
+
+/* font */
+$font-base: "Noto Serif JP", serif;
+$font-en1: "EB Garamond", sans-serif;
+$font-en2: "Marcellus", sans-serif;
+
+/*!
+foundation > base
+------------------------------
+*/
+body {
+    color: $black;
+    font-family: $font-base;
+    font-size: vw(14);
+    line-height: 1.4;
+}
+/*!
+component > button
+------------------------------
+*/
+.button {
+    width: vw(300);
+    height: vw(58);
+    border-radius: vw(34);
+    display: grid;
+    place-items: center;
+    color: $white;
+    font-size: vw(18);
+    margin: 0 auto;
+
+    @include mq(md) {
+        margin: 0;
+        width: px2Rem(300);
+        height: px2Rem(58);
+        font-size: px2Rem(18);
+    }
+    &--primary {
+        background-color: $greenblue;
+    }
+    &--secondary {
+        background-color: $bgreen;
+    }
+}
+/*!
+component > cta
+------------------------------
+*/
+.cta {
+    margin-bottom: vw(50);
+    @include mq(md) {
+        margin: px2Rem(48) 0;
+        padding: 0 px2Rem(20);
+    }
+    &__container {
+        width: vw(358);
+        height: vw(261);
+        background-color: $palepurple;
+        margin: 0 auto;
+        padding: vw(20) vw(29) vw(34) ;
+        text-align: center;
+
+        @include mq(md) {
+            display: flex;
+            width: 100%;
+            max-width: px2Rem(1000);
+            height: px2Rem(146);
+            padding: px2Rem(44) px2Rem(48);
+            justify-content: space-between;
+        }
+    }
+    &__text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-shrink: 0;
+        @include mq(md) {
+            margin-right: px2Rem(10);
+        }
+    }
+    &__title {
+        font-size: vw(18);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: $blacksecond;
+        margin-bottom: vw(5);
+        @include mq(md) {
+            font-size: px2Rem(18);
+        }
+    }
+    &__price {
+        font-size: vw(14);
+        color: $blacksecond;
+        letter-spacing: 0.1em;
+        margin-bottom: vw(20);
+        @include mq(md) {
+            margin-bottom: 0;
+            font-size: px2Rem(14);
+            text-align: left;
+        }
+    }
+    &__button {
+        display: flex;
+        flex-direction: column;
+        gap: vw(20);
+        @include mq(md) {
+            flex-direction: row;
+            gap: px2Rem(32);
+        }
+    }
+}
+/*!
+component > slide-item
+------------------------------
+*/
+.slide-item {
+    width: vw(280);
+    height: vw(344);
+    background-color: $paleblue-light;
+    padding: vw(28) vw(15);
+    @include mq(md) {
+        width: px2Rem(300);
+        height: px2Rem(388);
+        padding: px2Rem(40) px2Rem(16);
+    }
+}
+.slide-item__head {
+    margin-bottom: vw(20);
+    @include mq(md) {
+        margin-bottom: px2Rem(16);
+    }
+}
+.slide-item__img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: vw(8);
+    @include mq(md) {
+        margin-bottom: px2Rem(8);
+    }
+}
+.slide-item__img img {
+    width: vw(80);
+    height: vw(80);
+    border-radius: 50%;
+    @include mq(md) {
+        width: px2Rem(100);
+        height: px2Rem(100);
+    }
+}
+.slide-item__name {
+    font-size: vw(14);
+    text-align: center;
+    @include mq(md) {
+        font-size: px2Rem(15);
+    }
+}
+.slide-item__body {
+    font-size: vw(14);
+    line-height: 2;
+    @include mq(md) {
+        font-size: px2Rem(14);
+    }
+}
+
+/*!
+header
+------------------------------
+*/
+.header {
+    background-image: url("/assets/image/mainVisual_sp01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: vw(390);
+    height: vw(450);
+    padding-top: vw(24);
+    margin-bottom: vw(157);
+    @include mq(md) {
+        background-image: url(/assets/image/mainVisula_pc01.jpg);
+        width: 100%;
+        height: px2Rem(750);
+        padding-top: px2Rem(32);
+        margin-bottom: 0;
+        object-fit: cover;
+    }
+}
+.header__logo img {
+    display: block;
+    width: vw(143);
+    height: vw(30);
+    margin: 0 auto;
+    @include mq(md) {
+        width: px2Rem(166);
+        height: px2Rem(35);
+    }
+}
+/*!
+title
+------------------------------
+*/
+.title {
+    margin-top: vw(360);
+    @include mq(md) {
+        margin-top: px2Rem(100);
+    }
+}
+.title__container {
+    padding: 0 vw(23);
+}
+.title__main {
+    font-size: vw(41);
+    font-family: $font-en2;
+    letter-spacing: 0.3em;
+    @include mq(md) {
+        font-size: px2Rem(50);
+    }
+}
+.title__sub {
+    font-size: vw(20);
+    letter-spacing: 0.3em;
+    @include mq(md) {
+        font-size: px2Rem(25);
+    }
+}
+/*!
+mass
+------------------------------
+*/
+.mass {
+    background-image: url(/assets/image/massVisual_sp01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: vw(390);
+    height: vw(680);
+    padding: vw(48) vw(16);
+    color: $white;
+    @include mq(md) {
+        background-image: url(/assets/image/massVisual_pc01.jpg);
+        width: 100%;
+        height: px2Rem(550);
+        padding: px2Rem(127) 0;
+    }
+}
+.mass__container {
+    @include mq(md) {
+        max-width: 100%;
+        margin: 0 px2Rem(100);
+        display: grid;
+        justify-content: end;
+
+    }
+}
+.mass__title {
+    text-align: left;
+    margin-bottom: vw(20);
+    @include mq(md) {
+        margin-bottom: px2Rem(24);
+    }
+}
+.mass__maintitle {
+    font-family: $font-en1;
+    font-size: vw(30);
+    font-weight: 700;
+    margin-bottom: vw(8);
+    @include mq(md) {
+        font-size: px2Rem(38);
+        margin-bottom: px2Rem(8);
+    }
+}
+.mass__subtitle {
+    font-size: vw(24);
+    font-weight: 600;
+    @include mq(md) {
+        font-size: px2Rem(24);
+    }
+}
+.mass__text {
+    font-size: vw(14);
+    line-height: 2.2;
+    @include mq(md) {
+        font-size: px2Rem(14);
+        width: px2Rem(429);
+    }
+}
+/*!
+footer
+------------------------------
+*/
+.footer {
+    height: vw(165);
+    background-color: $azureblue;
+    padding: vw(24);
+    color: $white;
+}
+.footer__container {
+    margin: 0 auto;
+    text-align: center;
+}
+.footer__title {
+    font-family: $font-en2;
+    font-size: vw(28);
+    letter-spacing: 0.2em;
+    margin-bottom: vw(24);
+}
+.footer__nav {
+    display: flex;
+    justify-content: center;
+    gap: vw(30);
+    font-size: vw(12);
+    margin-bottom: vw(25);
+}
+.footer__copyright {
+    font-size: var(11);
+}
