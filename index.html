@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>肌のうるおい、煌めく Kirameki Cream | Kira-mek</title>
+    <title>肌のうるおい、煌めく Kirameki Cream | Kira-meki</title>
     <meta name="description" content="Kirameki Creamはお肌のうるおいを美しく保ちます。" />
 
     <!-- ogp -->
@@ -17,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Noto+Serif+JP:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+
+    <!-- slick -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 
     <!-- css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.1/destyle.min.css">
@@ -51,8 +55,12 @@
                 <div class="cta__price">税込 4,000円</div>
             </div>
             <div class="cta__button">
-                <div class="button button--primary">オンラインショップへ</div>
-                <div class="button button--secondary">購入する</div>
+                <a href="#">
+                    <div class="button button--primary">オンラインショップへ</div>
+                </a>
+                <a href="">
+                    <div class="button button--secondary">購入する</div>
+                </a>
             </div>
         </div>
     </div>
@@ -70,19 +78,118 @@
         </div>
     </section>
 
-    <!-- slide-item -->
-    <div class="slide-item">
-        <div class="slide-item__head">
-            <div class="slide-item__img">
-                <img src="/assets/image/slide-img01.jpg" alt="">
+    <!-- voices -->
+    <section class="voices">
+        <div class="voices__title">
+            <h2 class="voices__title--en">Voices</h2>
+            <div class="voices__title--jp">お客様の声</div>
+        </div>
+        <!-- slide-item -->
+        <div class="slide">
+            <div class="slide-item">
+                <div class="slide-item__head">
+                    <div class="slide-item__img">
+                        <img src="/assets/image/slide-img01.jpg" alt="">
+                    </div>
+                    <div class="slide-item__name">Aさん</div>
+                </div>
+                <div class="slide-item__body">
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
             </div>
-            <div class="slide-item__name">Aさん</div>
+            <div class="slide-item">
+                <div class="slide-item__head">
+                    <div class="slide-item__img">
+                        <img src="/assets/image/slide-img02.jpg" alt="">
+                    </div>
+                    <div class="slide-item__name">Bさん</div>
+                </div>
+                <div class="slide-item__body">
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="slide-item__head">
+                    <div class="slide-item__img">
+                        <img src="/assets/image/slide-img03.jpg" alt="">
+                    </div>
+                    <div class="slide-item__name">Cさん</div>
+                </div>
+                <div class="slide-item__body">
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="slide-item__head">
+                    <div class="slide-item__img">
+                        <img src="/assets/image/slide-img01.jpg" alt="">
+                    </div>
+                    <div class="slide-item__name">Aさん</div>
+                </div>
+                <div class="slide-item__body">
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="slide-item__head">
+                    <div class="slide-item__img">
+                        <img src="/assets/image/slide-img02.jpg" alt="">
+                    </div>
+                    <div class="slide-item__name">Bさん</div>
+                </div>
+                <div class="slide-item__body">
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="slide-item__head">
+                    <div class="slide-item__img">
+                        <img src="/assets/image/slide-img03.jpg" alt="">
+                    </div>
+                    <div class="slide-item__name">Cさん</div>
+                </div>
+                <div class="slide-item__body">
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
+            </div>
         </div>
-        <div class="slide-item__body">
-            <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-        </div>
-    </div>
+    </section>
 
+    <!-- faq -->
+    <section class="faq">
+        <div class="accordion">
+            <div class="accordion__panel">
+                <div class="accordion__header">
+                    <div class="accordion__header-question">Q.</div>
+                    <div class="accordion__header-text">テキストが入ります。テキストが入ります。テキストが入ります。</div>
+                    <div class="accordion__header-icon">
+                        <img src="/assets/image/icon-arrow-down.svg" alt="">
+                    </div>
+                </div>
+                <div class="accordion__content">
+                    <div class="accordion__content-container">
+                        <div class="accordion__content-answer">A.</div>
+                        <div class="accordion__content-text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion__panel">
+                <div class="accordion__header">
+                    <div class="accordion__header-question">Q.</div>
+                    <div class="accordion__header-text">テキストが入ります。テキストが入ります。テキストが入ります。</div>
+                    <div class="accordion__header-icon">
+                        <img src="/assets/image/icon-arrow-down.svg" alt="">
+                    </div>
+                </div>
+                <div class="accordion__content">
+                    <div class="accordion__content-container">
+                        <div class="accordion__content-answer">A.</div>
+                        <div class="accordion__content-text">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- cta -->
     <div class="cta">
         <div class="cta__container">
@@ -112,9 +219,12 @@
                     <a href="">お問い合わせ</a>
                 </li>
             </ul>
-            <small class="footer_copyright">&copy; 2023 Kira-meki Inc. All rights reserved.</small>
+            <small class="footer__copyright">&copy; 2023 Kira-meki Inc. All rights reserved.</small>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="assets/script/main.js"></script>
 </body>
 </html>

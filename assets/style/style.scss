@@ -136,9 +136,19 @@ component > button
     }
     &--primary {
         background-color: $greenblue;
+        &:hover {
+            border: 1px solid $greenblue;
+            background-color: $white;
+            color: $greenblue;
+        }
     }
     &--secondary {
         background-color: $bgreen;
+        &:hover {
+            background-color: $white;
+            color: $bgreen;
+            border: 1px solid $bgreen;
+        }
     }
 }
 /*!
@@ -208,58 +218,89 @@ component > cta
         }
     }
 }
+
 /*!
-component > slide-item
+component > accordion-panel
 ------------------------------
 */
-.slide-item {
-    width: vw(280);
-    height: vw(344);
-    background-color: $paleblue-light;
-    padding: vw(28) vw(15);
-    @include mq(md) {
-        width: px2Rem(300);
-        height: px2Rem(388);
-        padding: px2Rem(40) px2Rem(16);
-    }
-}
-.slide-item__head {
+.accordion__panel {
+    background-color: $white;
+    font-weight: 500;
+    line-height: 1.8;
     margin-bottom: vw(20);
     @include mq(md) {
-        margin-bottom: px2Rem(16);
+        width: 100%;
+        max-width: px2Rem(600);
+        margin: 0 auto px2Rem(24);
     }
 }
-.slide-item__img {
+.accordion__header {
+    padding: vw(20) vw(16) vw(19);
+    cursor: pointer;
     display: flex;
-    justify-content: center;
-    margin-bottom: vw(8);
     @include mq(md) {
-        margin-bottom: px2Rem(8);
+        padding: px2Rem(26) px2Rem(24) px2Rem(24);
+        align-items: center;
+        line-height: 1;
     }
 }
-.slide-item__img img {
-    width: vw(80);
-    height: vw(80);
-    border-radius: 50%;
+.accordion__header-question {
+    font-family: $font-en1;
+    font-size: vw(16);
+    margin-right: vw(12);
     @include mq(md) {
-        width: px2Rem(100);
-        height: px2Rem(100);
+        font-size: px2Rem(18);
+        margin-right: px2Rem(16);
     }
 }
-.slide-item__name {
-    font-size: vw(14);
-    text-align: center;
+.accordion__header-text {
+    font-size: vw(15);
+    margin-right: vw(16);
+    @include mq(md) {
+        font-size: px2Rem(15);
+        margin-right: auto;
+    }
+}
+.accordion__header-icon img {
+    width: vw(10);
+    height: vw(6.5);
+    @include mq(md) {
+        width: px2Rem(12);
+        height: px2Rem(7.7);
+        vertical-align: middle;
+        margin-left: auto;
+    }
+}
+.accordion__header-icon img.active {
+    transform: rotate(180deg);
+}
+.accordion__content {
+    display: none;
+}
+.accordion__content-container {
+    display: flex;
+    padding: 0 vw(16) vw(33);
+    @include mq(md) {
+        padding: 0 px2Rem(24) px2Rem(24) px2Rem(26);
+    }
+}
+.accordion__content-answer {
+    font-family: $font-en1;
+    font-size: vw(16);
+    margin-right: vw(16);
+    @include mq(md) {
+        font-size: px2Rem(18);
+        margin-right: px2Rem(28);
+    }
+}
+.accordion__content-text {
+    font-size: vw(15);
     @include mq(md) {
         font-size: px2Rem(15);
     }
 }
-.slide-item__body {
-    font-size: vw(14);
-    line-height: 2;
-    @include mq(md) {
-        font-size: px2Rem(14);
-    }
-}
+
+
 
 /*!
 header
@@ -383,6 +424,132 @@ mass
     }
 }
 /*!
+voices
+------------------------------
+*/
+.voices {
+    padding: {
+        top: vw(50);
+        bottom: vw(50);
+    }
+}
+.voices__title {
+    text-align: center;
+    margin-bottom: vw(36);
+    &--en {
+        font-family: $font-en1;
+        font-size: vw(30);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        margin-bottom: vw(4);
+    }
+    &--jp {
+        font-size: vw(16);
+        font-weight: 600;
+    }
+}
+/*! slide-item
+------------------------------
+*/
+.slide {
+    margin: 0 auto;
+}
+.slide-item {
+    width: vw(280);
+    height: vw(344);
+    background-color: $paleblue-light;
+    padding: vw(28) vw(15);
+    margin: 0 vw(55) vw(10);
+    @include mq(md) {
+        width: px2Rem(300);
+        height: px2Rem(388);
+        padding: px2Rem(40) px2Rem(16);
+    }
+}
+.prev-arrow {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: vw(32);
+    height: vw(32);
+}
+.next-arrow {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: vw(32);
+    height: vw(32);
+}
+.slick-dots li {
+    width: vw(8);
+}
+.slick-dots li button::before {
+    font-size: vw(9);
+    color: $palegrey;
+    opacity: 1;
+}
+.slick-dots li.slick-active button:before{
+    color: $mintgreen;
+}
+
+.slide-item__head {
+    margin-bottom: vw(20);
+    @include mq(md) {
+        margin-bottom: px2Rem(16);
+    }
+}
+.slide-item__img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: vw(8);
+    @include mq(md) {
+        margin-bottom: px2Rem(8);
+    }
+}
+.slide-item__img img {
+    width: vw(80);
+    height: vw(80);
+    border-radius: 50%;
+    @include mq(md) {
+        width: px2Rem(100);
+        height: px2Rem(100);
+    }
+}
+.slide-item__name {
+    font-size: vw(14);
+    text-align: center;
+    @include mq(md) {
+        font-size: px2Rem(15);
+    }
+}
+.slide-item__body {
+    font-size: vw(14);
+    line-height: 2;
+    @include mq(md) {
+        font-size: px2Rem(14);
+    }
+}
+
+/*!
+faq
+------------------------------
+*/
+.faq {
+    background: transparent linear-gradient(90deg, #F4FFE8 0%, #C6F0FE 100%) 0% 0% no-repeat padding-box;
+
+}
+.accordion {
+    padding: vw(37) vw(16) vw(32);
+    margin-bottom: vw(50);
+    @include mq(md) {
+        padding: px2Rem(40) px2Rem(16);
+        margin-bottom: px2Rem(48);
+    }
+}
+
+
+/*!
 footer
 ------------------------------
 */
@@ -391,16 +558,29 @@ footer
     background-color: $azureblue;
     padding: vw(24);
     color: $white;
+    @include mq(md) {
+        height: px2Rem(104);
+        padding: px2Rem(32) px2Rem(182);
+    }
 }
 .footer__container {
     margin: 0 auto;
     text-align: center;
+    @include mq(md) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 .footer__title {
     font-family: $font-en2;
     font-size: vw(28);
     letter-spacing: 0.2em;
     margin-bottom: vw(24);
+    @include mq(md) {
+        font-size: px2Rem(32);
+        margin: 0;
+    }
 }
 .footer__nav {
     display: flex;
@@ -408,7 +588,15 @@ footer
     gap: vw(30);
     font-size: vw(12);
     margin-bottom: vw(25);
+    @include mq(md) {
+        font-size: px2Rem(14);
+        gap: px2Rem(32);
+        margin: 0;
+    }
 }
 .footer__copyright {
     font-size: var(11);
+    @include mq(md) {
+        font-size: px2Rem(12);
+    }
 }
