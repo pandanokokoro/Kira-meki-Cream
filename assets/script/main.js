@@ -10,10 +10,12 @@ $('.accordion__header').click(function() {
 
 // カルーセル
 $('.slide').slick({
+    slidesToShow: 1,
     infinite: true,
     dots: true,
     arrows: true,
     prevArrow: '<img src="/assets/image/slide-arrow-left.svg" class="slide-arrow prev-arrow">',
     nextArrow: '<img src="/assets/image/slide-arrow-right.svg" class="slide-arrow next-arrow">',
-    fade: true
+    fade: true,
+    
 });

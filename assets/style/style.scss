@@ -432,10 +432,19 @@ voices
         top: vw(50);
         bottom: vw(50);
     }
+    @include mq(md) {
+        padding: {
+            top: px2Rem(80);
+            bottom: px2Rem(80);
+        }
+    }
 }
 .voices__title {
     text-align: center;
     margin-bottom: vw(36);
+    @include mq(md) {
+        margin-bottom: px2Rem(40);
+    }
     &--en {
         font-family: $font-en1;
         font-size: vw(30);
@@ -443,10 +452,17 @@ voices
         letter-spacing: 0.05em;
         line-height: 1;
         margin-bottom: vw(4);
+        @include mq(md) {
+            font-size: px2Rem(45);
+            margin-bottom: px2Rem(8);
+        }
     }
     &--jp {
         font-size: vw(16);
         font-weight: 600;
+        @include mq(md) {
+            font-size: px2Rem(20);
+        }
     }
 }
 /*! slide-item
@@ -454,6 +470,10 @@ voices
 */
 .slide {
     margin: 0 auto;
+    @include mq(md) {
+        // display: flex;
+        // overflow: scroll;
+    }
 }
 .slide-item {
     width: vw(280);

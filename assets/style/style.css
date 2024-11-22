@@ -399,10 +399,21 @@ voices
   padding-top: 12.8205128205vw;
   padding-bottom: 12.8205128205vw;
 }
+@media screen and (min-width: 768px) {
+  .voices {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
 
 .voices__title {
   text-align: center;
   margin-bottom: 9.2307692308vw;
+}
+@media screen and (min-width: 768px) {
+  .voices__title {
+    margin-bottom: 2.5rem;
+  }
 }
 .voices__title--en {
   font-family: "EB Garamond", sans-serif;
@@ -412,9 +423,20 @@ voices
   line-height: 1;
   margin-bottom: 1.0256410256vw;
 }
+@media screen and (min-width: 768px) {
+  .voices__title--en {
+    font-size: 2.8125rem;
+    margin-bottom: 0.5rem;
+  }
+}
 .voices__title--jp {
   font-size: 4.1025641026vw;
   font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .voices__title--jp {
+    font-size: 1.25rem;
+  }
 }
 
 /*! slide-item
@@ -423,7 +445,6 @@ voices
 .slide {
   margin: 0 auto;
 }
-
 .slide-item {
   width: 71.7948717949vw;
   height: 88.2051282051vw;
