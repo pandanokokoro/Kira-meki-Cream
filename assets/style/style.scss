@@ -78,6 +78,33 @@ $breakpoints: (
     @return calc($px * 100vw / $pc-full-width);
 }
 
+// 下記でmin/max関数をScssの関数ではなくcssの関数として出力するためのラッパー
+@function min($values...) {
+    @return unquote('min(#{$values})');
+}
+
+@function max($values...) {
+    @return unquote('max(#{$values})');
+}
+
+  // vwで動作し、pxで頭打ちにする関数
+@function mvw($px) {
+    @if $production !=1 {
+      @return $px * 1px;
+    }
+
+    $value1: vwt($px);
+    $value2: px2Rem($px);
+
+    @if $px>=0 {
+        @return min($value1, $value2);
+    }
+
+    @else {
+        @return max($value1, $value2);
+    }
+}
+
 /*!
 global
 ------------------------------
@@ -128,11 +155,11 @@ component > button
     font-size: vw(18);
     margin: 0 auto;
 
-    @include mq(md) {
+    @include mq() {
         margin: 0;
-        width: px2Rem(300);
-        height: px2Rem(58);
-        font-size: px2Rem(18);
+        width: mvw(300);
+        height: mvw(58);
+        font-size: mvw(18);
     }
     &--primary {
         background-color: $greenblue;
@@ -152,14 +179,44 @@ component > button
     }
 }
 /*!
+component > section-title
+------------------------------
+*/
+.section__title {
+    text-align: center;
+    margin-bottom: vw(36);
+    @include mq() {
+        margin-bottom: mvw(40);
+    }
+    &--en {
+        font-family: $font-en1;
+        font-size: vw(30);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        margin-bottom: vw(4);
+        @include mq() {
+            font-size: mvw(45);
+            margin-bottom: mvw(8);
+        }
+    }
+    &--jp {
+        font-size: vw(16);
+        font-weight: 600;
+        @include mq() {
+            font-size: mvw(20);
+        }
+    }
+}
+/*!
 component > cta
 ------------------------------
 */
 .cta {
     margin-bottom: vw(50);
-    @include mq(md) {
-        margin: px2Rem(48) 0;
-        padding: 0 px2Rem(20);
+    @include mq() {
+        margin: mvw(48) 0;
+        padding: 0 mvw(20);
     }
     &__container {
         width: vw(358);
@@ -169,12 +226,12 @@ component > cta
         padding: vw(20) vw(29) vw(34) ;
         text-align: center;
 
-        @include mq(md) {
+        @include mq() {
             display: flex;
             width: 100%;
-            max-width: px2Rem(1000);
-            height: px2Rem(146);
-            padding: px2Rem(44) px2Rem(48);
+            max-width: mvw(1000);
+            height: mvw(146);
+            padding: mvw(44) mvw(48);
             justify-content: space-between;
         }
     }
@@ -183,8 +240,8 @@ component > cta
         justify-content: center;
         flex-direction: column;
         flex-shrink: 0;
-        @include mq(md) {
-            margin-right: px2Rem(10);
+        @include mq() {
+            margin-right: mvw(10);
         }
     }
     &__title {
@@ -193,8 +250,8 @@ component > cta
         letter-spacing: 0.1em;
         color: $blacksecond;
         margin-bottom: vw(5);
-        @include mq(md) {
-            font-size: px2Rem(18);
+        @include mq() {
+            font-size: mvw(18);
         }
     }
     &__price {
@@ -202,9 +259,9 @@ component > cta
         color: $blacksecond;
         letter-spacing: 0.1em;
         margin-bottom: vw(20);
-        @include mq(md) {
+        @include mq() {
             margin-bottom: 0;
-            font-size: px2Rem(14);
+            font-size: mvw(14);
             text-align: left;
         }
     }
@@ -212,9 +269,9 @@ component > cta
         display: flex;
         flex-direction: column;
         gap: vw(20);
-        @include mq(md) {
+        @include mq() {
             flex-direction: row;
-            gap: px2Rem(32);
+            gap: mvw(32);
         }
     }
 }
@@ -228,18 +285,21 @@ component > accordion-panel
     font-weight: 500;
     line-height: 1.8;
     margin-bottom: vw(20);
-    @include mq(md) {
+    &:nth-of-type(1) .accordion__content {
+        display: block;
+    }
+    @include mq() {
         width: 100%;
-        max-width: px2Rem(600);
-        margin: 0 auto px2Rem(24);
+        max-width: mvw(600);
+        margin: 0 auto mvw(24);
     }
 }
 .accordion__header {
     padding: vw(20) vw(16) vw(19);
     cursor: pointer;
     display: flex;
-    @include mq(md) {
-        padding: px2Rem(26) px2Rem(24) px2Rem(24);
+    @include mq() {
+        padding: mvw(10) mvw(24) mvw(10);
         align-items: center;
         line-height: 1;
     }
@@ -248,25 +308,25 @@ component > accordion-panel
     font-family: $font-en1;
     font-size: vw(16);
     margin-right: vw(12);
-    @include mq(md) {
-        font-size: px2Rem(18);
-        margin-right: px2Rem(16);
+    @include mq() {
+        font-size: mvw(18);
+        margin-right: mvw(16);
     }
 }
 .accordion__header-text {
     font-size: vw(15);
     margin-right: vw(16);
-    @include mq(md) {
-        font-size: px2Rem(15);
+    @include mq() {
+        font-size: mvw(15);
         margin-right: auto;
     }
 }
 .accordion__header-icon img {
     width: vw(10);
     height: vw(6.5);
-    @include mq(md) {
-        width: px2Rem(12);
-        height: px2Rem(7.7);
+    @include mq() {
+        width: mvw(12);
+        height: mvw(7.7);
         vertical-align: middle;
         margin-left: auto;
     }
@@ -280,34 +340,31 @@ component > accordion-panel
 .accordion__content-container {
     display: flex;
     padding: 0 vw(16) vw(33);
-    @include mq(md) {
-        padding: 0 px2Rem(24) px2Rem(24) px2Rem(26);
+    @include mq() {
+        padding: 0 mvw(24) mvw(24) mvw(26);
     }
 }
 .accordion__content-answer {
     font-family: $font-en1;
     font-size: vw(16);
     margin-right: vw(16);
-    @include mq(md) {
-        font-size: px2Rem(18);
-        margin-right: px2Rem(28);
+    @include mq() {
+        font-size: mvw(18);
+        margin-right: mvw(28);
     }
 }
 .accordion__content-text {
     font-size: vw(15);
-    @include mq(md) {
-        font-size: px2Rem(15);
+    @include mq() {
+        font-size: mvw(15);
     }
 }
-
-
-
 /*!
 header
 ------------------------------
 */
 .header {
-    background-image: url("/assets/image/mainVisual_sp01.jpg");
+    background-image: url("/assets/image/main_visual_sp_01.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -315,11 +372,11 @@ header
     height: vw(450);
     padding-top: vw(24);
     margin-bottom: vw(157);
-    @include mq(md) {
-        background-image: url(/assets/image/mainVisula_pc01.jpg);
+    @include mq() {
+        background-image: url(/assets/image/main_visula_pc_01.jpg);
         width: 100%;
-        height: px2Rem(750);
-        padding-top: px2Rem(32);
+        height: mvw(750);
+        padding-top: mvw(32);
         margin-bottom: 0;
         object-fit: cover;
     }
@@ -329,9 +386,9 @@ header
     width: vw(143);
     height: vw(30);
     margin: 0 auto;
-    @include mq(md) {
-        width: px2Rem(166);
-        height: px2Rem(35);
+    @include mq() {
+        width: mvw(166);
+        height: mvw(35);
     }
 }
 /*!
@@ -340,8 +397,8 @@ title
 */
 .title {
     margin-top: vw(360);
-    @include mq(md) {
-        margin-top: px2Rem(100);
+    @include mq() {
+        margin-top: mvw(100);
     }
 }
 .title__container {
@@ -351,15 +408,15 @@ title
     font-size: vw(41);
     font-family: $font-en2;
     letter-spacing: 0.3em;
-    @include mq(md) {
-        font-size: px2Rem(50);
+    @include mq() {
+        font-size: mvw(50);
     }
 }
 .title__sub {
     font-size: vw(20);
     letter-spacing: 0.3em;
-    @include mq(md) {
-        font-size: px2Rem(25);
+    @include mq() {
+        font-size: mvw(25);
     }
 }
 /*!
@@ -367,7 +424,7 @@ mass
 ------------------------------
 */
 .mass {
-    background-image: url(/assets/image/massVisual_sp01.jpg);
+    background-image: url(/assets/image/mass_Visual_sp_01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -375,17 +432,17 @@ mass
     height: vw(680);
     padding: vw(48) vw(16);
     color: $white;
-    @include mq(md) {
-        background-image: url(/assets/image/massVisual_pc01.jpg);
+    @include mq() {
+        background-image: url(/assets/image/mass_visual_pc_01.jpg);
         width: 100%;
-        height: px2Rem(550);
-        padding: px2Rem(127) 0;
+        height: mvw(550);
+        padding: mvw(127) 0;
     }
 }
 .mass__container {
-    @include mq(md) {
+    @include mq() {
         max-width: 100%;
-        margin: 0 px2Rem(100);
+        margin: 0 mvw(100);
         display: grid;
         justify-content: end;
 
@@ -394,8 +451,8 @@ mass
 .mass__title {
     text-align: left;
     margin-bottom: vw(20);
-    @include mq(md) {
-        margin-bottom: px2Rem(24);
+    @include mq() {
+        margin-bottom: mvw(24);
     }
 }
 .mass__maintitle {
@@ -403,24 +460,24 @@ mass
     font-size: vw(30);
     font-weight: 700;
     margin-bottom: vw(8);
-    @include mq(md) {
-        font-size: px2Rem(38);
-        margin-bottom: px2Rem(8);
+    @include mq() {
+        font-size: mvw(38);
+        margin-bottom: mvw(8);
     }
 }
 .mass__subtitle {
     font-size: vw(24);
     font-weight: 600;
-    @include mq(md) {
-        font-size: px2Rem(24);
+    @include mq() {
+        font-size: mvw(24);
     }
 }
 .mass__text {
     font-size: vw(14);
     line-height: 2.2;
-    @include mq(md) {
-        font-size: px2Rem(14);
-        width: px2Rem(429);
+    @include mq() {
+        font-size: mvw(14);
+        width: mvw(429);
     }
 }
 /*!
@@ -432,47 +489,22 @@ voices
         top: vw(50);
         bottom: vw(50);
     }
-    @include mq(md) {
+    @include mq() {
         padding: {
-            top: px2Rem(80);
-            bottom: px2Rem(80);
+            top: mvw(80);
+            bottom: mvw(80);
         }
     }
 }
-.voices__title {
-    text-align: center;
-    margin-bottom: vw(36);
-    @include mq(md) {
-        margin-bottom: px2Rem(40);
-    }
-    &--en {
-        font-family: $font-en1;
-        font-size: vw(30);
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        line-height: 1;
-        margin-bottom: vw(4);
-        @include mq(md) {
-            font-size: px2Rem(45);
-            margin-bottom: px2Rem(8);
-        }
-    }
-    &--jp {
-        font-size: vw(16);
-        font-weight: 600;
-        @include mq(md) {
-            font-size: px2Rem(20);
-        }
-    }
-}
+
 /*! slide-item
 ------------------------------
 */
 .slide {
     margin: 0 auto;
-    @include mq(md) {
-        // display: flex;
-        // overflow: scroll;
+    @include mq() {
+        display: flex;
+        justify-content: space-between;
     }
 }
 .slide-item {
@@ -481,10 +513,11 @@ voices
     background-color: $paleblue-light;
     padding: vw(28) vw(15);
     margin: 0 vw(55) vw(10);
-    @include mq(md) {
-        width: px2Rem(300);
-        height: px2Rem(388);
-        padding: px2Rem(40) px2Rem(16);
+    @include mq() {
+        width: calc((100% - mvw(20)) / 3);
+        height: mvw(388);
+        padding: mvw(40) mvw(16) mvw(4);
+        margin: 0;
     }
 }
 .prev-arrow {
@@ -493,6 +526,11 @@ voices
     left: 5%;
     width: vw(32);
     height: vw(32);
+    z-index: 10;
+    @include mq() {
+        width: mvw(48);
+        height: mvw(48);
+    }
 }
 .next-arrow {
     position: absolute;
@@ -500,6 +538,10 @@ voices
     right: 5%;
     width: vw(32);
     height: vw(32);
+    @include mq() {
+        width: mvw(48);
+        height: mvw(48);
+    }
 }
 .slick-dots li {
     width: vw(8);
@@ -508,6 +550,9 @@ voices
     font-size: vw(9);
     color: $palegrey;
     opacity: 1;
+    @include mq() {
+        font-size: mvw(9);
+    }
 }
 .slick-dots li.slick-active button:before{
     color: $mintgreen;
@@ -515,39 +560,39 @@ voices
 
 .slide-item__head {
     margin-bottom: vw(20);
-    @include mq(md) {
-        margin-bottom: px2Rem(16);
+    @include mq() {
+        margin-bottom: mvw(16);
     }
 }
 .slide-item__img {
     display: flex;
     justify-content: center;
     margin-bottom: vw(8);
-    @include mq(md) {
-        margin-bottom: px2Rem(8);
+    @include mq() {
+        margin-bottom: mvw(8);
     }
 }
 .slide-item__img img {
     width: vw(80);
     height: vw(80);
     border-radius: 50%;
-    @include mq(md) {
-        width: px2Rem(100);
-        height: px2Rem(100);
+    @include mq() {
+        width: mvw(100);
+        height: mvw(100);
     }
 }
 .slide-item__name {
     font-size: vw(14);
     text-align: center;
-    @include mq(md) {
-        font-size: px2Rem(15);
+    @include mq() {
+        font-size: mvw(15);
     }
 }
 .slide-item__body {
     font-size: vw(14);
     line-height: 2;
-    @include mq(md) {
-        font-size: px2Rem(14);
+    @include mq() {
+        font-size: mvw(14);
     }
 }
 
@@ -557,14 +602,21 @@ faq
 */
 .faq {
     background: transparent linear-gradient(90deg, #F4FFE8 0%, #C6F0FE 100%) 0% 0% no-repeat padding-box;
-
+    padding: {
+        top: vw(50);
+    }
+    @include mq() {
+        padding: {
+            top: mvw(80);
+        }
+    }
 }
 .accordion {
     padding: vw(37) vw(16) vw(32);
     margin-bottom: vw(50);
-    @include mq(md) {
-        padding: px2Rem(40) px2Rem(16);
-        margin-bottom: px2Rem(48);
+    @include mq() {
+        padding: mvw(40) mvw(16);
+        margin-bottom: mvw(48);
     }
 }
 
@@ -578,27 +630,27 @@ footer
     background-color: $azureblue;
     padding: vw(24);
     color: $white;
-    @include mq(md) {
-        height: px2Rem(104);
-        padding: px2Rem(32) px2Rem(182);
+    @include mq() {
+        height: mvw(104);
+        padding: mvw(32) mvw(20);
     }
 }
 .footer__container {
     margin: 0 auto;
     text-align: center;
-    @include mq(md) {
+    @include mq() {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: mvw(100);
         align-items: center;
     }
 }
 .footer__title {
-    font-family: $font-en2;
-    font-size: vw(28);
-    letter-spacing: 0.2em;
+    width: vw(166);
+    margin: 0 auto;
     margin-bottom: vw(24);
-    @include mq(md) {
-        font-size: px2Rem(32);
+    @include mq() {
+        width: mvw(190);
         margin: 0;
     }
 }
@@ -608,15 +660,15 @@ footer
     gap: vw(30);
     font-size: vw(12);
     margin-bottom: vw(25);
-    @include mq(md) {
-        font-size: px2Rem(14);
-        gap: px2Rem(32);
+    @include mq() {
+        font-size: mvw(14);
+        gap: mvw(32);
         margin: 0;
     }
 }
 .footer__copyright {
     font-size: var(11);
-    @include mq(md) {
-        font-size: px2Rem(12);
+    @include mq() {
+        font-size: mvw(12);
     }
 }

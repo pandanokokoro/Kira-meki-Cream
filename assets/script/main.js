@@ -1,21 +1,26 @@
 // アコーディオン
-$(".accordion__panel:nth-of-type(1) .accordion__header-icon img").addClass("active");
-$(".accordion__panel:nth-of-type(1) .accordion__content").css("display", "block");
-
 $('.accordion__header').click(function() {
     $(this).next().slideToggle();
-    $(".accordion__header-icon img").toggleClass('active');
+    $(this).find(".accordion__header-icon img").toggleClass('active');
 });
-
 
 // カルーセル
 $('.slide').slick({
-    slidesToShow: 1,
     infinite: true,
     dots: true,
     arrows: true,
-    prevArrow: '<img src="/assets/image/slide-arrow-left.svg" class="slide-arrow prev-arrow">',
-    nextArrow: '<img src="/assets/image/slide-arrow-right.svg" class="slide-arrow next-arrow">',
+    nextArrow: '<img src="/assets/image/slide_arrow_right_01.svg" class="slide-arrow next-arrow">',
+    prevArrow: '<img src="/assets/image/slide_arrow_left_01.svg" class="prev-arrow">',
     fade: true,
-    
+    // slidesToShow: 3,
+    slidesToScroll: 5,
+    responsive: [
+        {
+            breakpoint: 767,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
 });
