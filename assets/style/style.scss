@@ -21,7 +21,7 @@ $breakpoint-lg: $pc-content-width;
 
 // 本番用か否か？本番用の場合は1にする。
 // 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
-$production: 1;
+$production: 0;
 
 
 //-----------------------------------------------------
@@ -135,6 +135,10 @@ $font-en2: "Marcellus", sans-serif;
 foundation > base
 ------------------------------
 */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: $black;
     font-family: $font-base;
@@ -194,7 +198,7 @@ component > section-title
         font-weight: 700;
         letter-spacing: 0.05em;
         line-height: 1;
-        margin-bottom: vw(4);
+        margin-bottom: vw(9);
         @include mq() {
             font-size: mvw(45);
             margin-bottom: mvw(13);
@@ -275,6 +279,9 @@ component > cta
             gap: mvw(32);
         }
     }
+    &--second {
+        margin-bottom: vw(10);
+    }
 }
 
 /*!
@@ -285,7 +292,7 @@ component > accordion-panel
     background-color: $white;
     font-weight: 500;
     line-height: 1.8;
-    margin-bottom: vw(20);
+    margin-bottom: vw(21);
     &:nth-of-type(1) .accordion__content {
         display: block;
     }
@@ -296,7 +303,7 @@ component > accordion-panel
     }
 }
 .accordion__header {
-    padding: vw(20) vw(16) vw(19);
+    padding: vw(20) vw(16) vw(13);
     cursor: pointer;
     display: flex;
     @include mq() {
@@ -351,7 +358,7 @@ component > accordion-panel
 .accordion__content-answer {
     font-family: $font-en1;
     font-size: vw(16);
-    margin-right: vw(16);
+    margin-right: vw(12);
     flex-shrink: 0;
     width: fit-content;
     @include mq() {
@@ -499,9 +506,10 @@ voices
 .voices {
     padding: {
         top: vw(55);
-        bottom: vw(50);
+        bottom: vw(34);
     }
     @include mq() {
+        margin: 0 auto;
         padding: {
             top: mvw(88);
             bottom: mvw(80);
@@ -531,6 +539,12 @@ voices
         padding: 0 mvw(40);
     }
 }
+// .slick-list {
+//     @include mq() {
+//         max-width: mvw(980);
+//         margin: 0 auto;
+//     }
+// }
 .slide-item {
     width: vw(280);
     height: vw(344);
@@ -540,13 +554,13 @@ voices
     @include mq() {
         height: mvw(388);
         padding: mvw(40) mvw(16) mvw(4);
-        margin: 0 mvw(45);
+        margin: 0 mvw(10);
     }
 }
 .prev-arrow {
     position: absolute;
-    top: 50%;
-    left: 5%;
+    top: 44%;
+    left: mvw(16);
     width: vw(32);
     height: vw(32);
     z-index: 10;
@@ -560,8 +574,8 @@ voices
 }
 .next-arrow {
     position: absolute;
-    top: 50%;
-    right: 5%;
+    top: 44%;
+    right: vw(16);
     width: vw(32);
     height: vw(32);
     @include mq() {
@@ -574,6 +588,8 @@ voices
 }
 
 .slick-dots {
+    bottom: mvw(-22);
+    left: mvw(-4);
     @include mq() {
         bottom: mvw(-35);
     }
@@ -642,7 +658,7 @@ faq
 .faq {
     background: transparent linear-gradient(90deg, #F4FFE8 0%, #C6F0FE 100%) 0% 0% no-repeat padding-box;
     padding: {
-        top: vw(50);
+        top: vw(38);
     }
     @include mq() {
         padding: {
@@ -651,30 +667,37 @@ faq
     }
 }
 .accordion {
-    padding: vw(37) vw(16) vw(32);
+    padding: 0 vw(16) vw(16);
     margin-bottom: vw(50);
     @include mq() {
-        padding: 0 mvw(16) mvw(40);
+        padding: 0 mvw(16) mvw(12);
         margin-bottom: mvw(48);
     }
 }
 
 // back-to-top
 //----------------------------
-.back-to-top {
+.back-to-top__container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: vw(16);
+    position: sticky;
+    bottom: vw(20);
+    left: 0;
+    @include mq() {
+        max-width: mvw(1231);
+    }
+}
+
+.back-to-top__button {
+    display: block;
     width: mvw(40);
     height: mvw(40);
-    position: sticky;
-    bottom: 10px;
-    left: 90%;
-    transform: translateY(-100%);
     cursor: pointer;
     z-index: 10;
     &:hover {
         opacity: .6;
-    }
-    @include mq() {
-        transform: translateY(-60%);
     }
 }
 
@@ -699,17 +722,16 @@ footer
     @include mq() {
         display: flex;
         justify-content: center;
-        gap: mvw(100);
+        gap: mvw(158);
         align-items: center;
     }
 }
-.footer
-
 .footer__title img{
     display: block;
     width: vw(166);
     margin: 0 auto;
-    margin-bottom: vw(24);
+    margin-bottom: vw(33);
+    margin-top: vw(5);
     @include mq() {
         width: mvw(190);
         height: mvw(40);
@@ -721,10 +743,10 @@ footer
     justify-content: center;
     gap: vw(30);
     font-size: vw(12);
-    margin-bottom: vw(25);
+    margin-bottom: vw(22);
     @include mq() {
         font-size: mvw(14);
-        gap: mvw(32);
+        gap: mvw(53);
         margin: 0;
     }
 }

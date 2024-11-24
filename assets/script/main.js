@@ -28,12 +28,8 @@ $('.slide').slick({
 //スクロールイベントで表示/非表示を切り替え
 $(window).on("scroll", function() {
     if ($(window).scrollTop() > 400) {
-        $(".back-to-top").fadeIn();
+        $(".back-to-top__button").fadeIn();
     } else {
-        $(".back-to-top").fadeOut();
+        $(".back-to-top__button").fadeOut();
     }
-})
-//スムーススクロールでトップに戻る
-$(".back-to-top").on("click", function() {
-    $("html, body").animate({ scrollTop: 0 }, 500);
 })
