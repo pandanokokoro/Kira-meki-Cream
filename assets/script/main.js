@@ -1,7 +1,8 @@
 // アコーディオン
 $('.accordion__header').click(function() {
     $(this).next().slideToggle();
-    $(this).find(".accordion__header-icon img").toggleClass('active');
+    // $(this).find(".accordion__header-icon img").toggleClass('active');
+    $(this).find("img").toggleClass('active');
 });
 
 // カルーセル

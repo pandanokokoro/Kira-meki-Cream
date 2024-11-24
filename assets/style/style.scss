@@ -21,7 +21,7 @@ $breakpoint-lg: $pc-content-width;
 
 // 本番用か否か？本番用の場合は1にする。
 // 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
-$production: 0;
+$production: 1;
 
 
 //-----------------------------------------------------
@@ -307,7 +307,7 @@ component > accordion-panel
     cursor: pointer;
     display: flex;
     @include mq() {
-        padding: mvw(25) mvw(24) mvw(24);
+        padding: mvw(9) mvw(24) mvw(3);
         align-items: center;
         line-height: 1;
     }
@@ -342,7 +342,7 @@ component > accordion-panel
         margin-left: auto;
     }
 }
-.accordion__header-icon img.active {
+.accordion__header-icon.active {
     transform: rotate(180deg);
 }
 .accordion__content {
@@ -512,7 +512,7 @@ voices
         margin: 0 auto;
         padding: {
             top: mvw(88);
-            bottom: mvw(80);
+            bottom: mvw(76);
             left: mvw(10);
             right: mvw(10);
         }
@@ -525,26 +525,19 @@ voices
 .slide {
     margin: 0 auto;
     @include mq() {
-        // max-width: mvw(1156);
-        
+        max-width: 1000px;
+        display: flex;
+
     }
 }
 
 .slide-container {
     @include mq() {
-        max-width: mvw(1156);
         margin: 0 auto;
         position: relative;
-        overflow: hidden;
         padding: 0 mvw(40);
     }
 }
-// .slick-list {
-//     @include mq() {
-//         max-width: mvw(980);
-//         margin: 0 auto;
-//     }
-// }
 .slide-item {
     width: vw(280);
     height: vw(344);
@@ -552,14 +545,20 @@ voices
     padding: vw(28) vw(15);
     margin: 0 vw(55) vw(10);
     @include mq() {
+        max-width: mvw(300);
         height: mvw(388);
         padding: mvw(40) mvw(16) mvw(4);
-        margin: 0 mvw(10);
+        margin: {
+            left: mvw(15);
+            right: mvw(19);
+            bottom: mvw(5)
+        };
+
     }
 }
 .prev-arrow {
     position: absolute;
-    top: 44%;
+    top: 49%;
     left: mvw(16);
     width: vw(32);
     height: vw(32);
@@ -568,13 +567,13 @@ voices
         cursor: pointer;
         width: mvw(48);
         height: mvw(48);
-        left: mvw(-40);
+        left: mvw(-78);
         transform: translateY(mvw(-22));
     }
 }
 .next-arrow {
     position: absolute;
-    top: 44%;
+    top: 49%;
     right: vw(16);
     width: vw(32);
     height: vw(32);
@@ -582,7 +581,7 @@ voices
         cursor: pointer;
         width: mvw(48);
         height: mvw(48);
-        right: mvw(-40);
+        right: mvw(-78);
         transform: translateY(mvw(-22));
     }
 }
@@ -611,8 +610,6 @@ voices
 .slick-dots li.slick-active button:before{
     color: $mintgreen;
 }
-
-
 .slide-item__head {
     margin-bottom: vw(20);
     @include mq() {
@@ -647,7 +644,7 @@ voices
     font-size: vw(14);
     line-height: 2;
     @include mq() {
-        font-size: mvw(14);
+        font-size: mvw(16);
     }
 }
 
@@ -682,8 +679,9 @@ faq
     display: flex;
     justify-content: flex-end;
     padding-right: vw(16);
+    height: fit-content;
     position: sticky;
-    bottom: vw(20);
+    // bottom: 20px;
     left: 0;
     @include mq() {
         max-width: mvw(1231);
@@ -692,8 +690,7 @@ faq
 
 .back-to-top__button {
     display: block;
-    width: mvw(40);
-    height: mvw(40);
+    width: 40px;
     cursor: pointer;
     z-index: 10;
     &:hover {
