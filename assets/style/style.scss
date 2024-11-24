@@ -279,8 +279,10 @@ component > cta
             gap: mvw(32);
         }
     }
-    &--second {
-        margin-bottom: vw(10);
+}
+.cta--second {
+    @include mq() {
+        margin-bottom: 0;
     }
 }
 
@@ -307,7 +309,7 @@ component > accordion-panel
     cursor: pointer;
     display: flex;
     @include mq() {
-        padding: mvw(9) mvw(24) mvw(3);
+        padding: mvw(24) mvw(24) mvw(24);
         align-items: center;
         line-height: 1;
     }
@@ -711,7 +713,7 @@ footer
     padding: vw(24);
     color: $white;
     @include mq() {
-        height: mvw(104);
+        height: 104px;
         padding: mvw(32) mvw(20);
     }
 }
