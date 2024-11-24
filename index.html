@@ -58,9 +58,9 @@
                 <a href="#">
                     <div class="button button--primary">オンラインショップへ</div>
                 </a>
-                <a href="">
-                    <div class="button button--secondary">購入する</div>
-                </a>
+                <form action="/cart/" method="post">
+                    <button class="button button--secondary" type="submit">購入する</button>
+                </form>
             </div>
         </div>
     </div>
@@ -85,71 +85,73 @@
             <div class="section__title--jp">お客様の声</div>
         </h2>
         <!-- slide-item -->
-        <div class="slide">
-            <div class="slide-item">
-                <div class="slide-item__head">
-                    <div class="slide-item__img">
-                        <img src="/assets/image/slide_img_01.jpg" alt="">
+        <div class="slide-container">
+            <div class="slide">
+                <div class="slide-item">
+                    <div class="slide-item__head">
+                        <div class="slide-item__img">
+                            <img src="/assets/image/slide_img_01.jpg" alt="">
+                        </div>
+                        <div class="slide-item__name">Aさん</div>
                     </div>
-                    <div class="slide-item__name">Aさん</div>
-                </div>
-                <div class="slide-item__body">
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </div>
-            </div>
-            <div class="slide-item">
-                <div class="slide-item__head">
-                    <div class="slide-item__img">
-                        <img src="/assets/image/slide_img_02.jpg" alt="">
+                    <div class="slide-item__body">
+                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
                     </div>
-                    <div class="slide-item__name">Bさん</div>
                 </div>
-                <div class="slide-item__body">
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </div>
-            </div>
-            <div class="slide-item">
-                <div class="slide-item__head">
-                    <div class="slide-item__img">
-                        <img src="/assets/image/slide_img_03.jpg" alt="">
+                <div class="slide-item">
+                    <div class="slide-item__head">
+                        <div class="slide-item__img">
+                            <img src="/assets/image/slide_img_02.jpg" alt="">
+                        </div>
+                        <div class="slide-item__name">Bさん</div>
                     </div>
-                    <div class="slide-item__name">Cさん</div>
-                </div>
-                <div class="slide-item__body">
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </div>
-            </div>
-            <div class="slide-item">
-                <div class="slide-item__head">
-                    <div class="slide-item__img">
-                        <img src="/assets/image/slide-img01.jpg" alt="">
+                    <div class="slide-item__body">
+                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
                     </div>
-                    <div class="slide-item__name">Dさん</div>
                 </div>
-                <div class="slide-item__body">
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </div>
-            </div>
-            <div class="slide-item">
-                <div class="slide-item__head">
-                    <div class="slide-item__img">
-                        <img src="/assets/image/slide-img02.jpg" alt="">
+                <div class="slide-item">
+                    <div class="slide-item__head">
+                        <div class="slide-item__img">
+                            <img src="/assets/image/slide_img_03.jpg" alt="">
+                        </div>
+                        <div class="slide-item__name">Cさん</div>
                     </div>
-                    <div class="slide-item__name">Eさん</div>
-                </div>
-                <div class="slide-item__body">
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </div>
-            </div>
-            <div class="slide-item">
-                <div class="slide-item__head">
-                    <div class="slide-item__img">
-                        <img src="/assets/image/slide-img03.jpg" alt="">
+                    <div class="slide-item__body">
+                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
                     </div>
-                    <div class="slide-item__name">Fさん</div>
                 </div>
-                <div class="slide-item__body">
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                <div class="slide-item">
+                    <div class="slide-item__head">
+                        <div class="slide-item__img">
+                            <img src="/assets/image/slide_img_04.jpg" alt="">
+                        </div>
+                        <div class="slide-item__name">Dさん</div>
+                    </div>
+                    <div class="slide-item__body">
+                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="slide-item__head">
+                        <div class="slide-item__img">
+                            <img src="/assets/image/slide_img_05.jpg" alt="">
+                        </div>
+                        <div class="slide-item__name">Eさん</div>
+                    </div>
+                    <div class="slide-item__body">
+                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                    </div>
+                </div>
+                <div class="slide-item">
+                    <div class="slide-item__head">
+                        <div class="slide-item__img">
+                            <img src="/assets/image/slide_img_06.jpg" alt="">
+                        </div>
+                        <div class="slide-item__name">Fさん</div>
+                    </div>
+                    <div class="slide-item__body">
+                        <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -158,8 +160,8 @@
     <!-- faq -->
     <section class="faq">
         <h2 class="section__title">
-            <div class="section__title--en">Voices</div>
-            <div class="section__title--jp">お客様の声</div>
+            <div class="section__title--en">Q&A</div>
+            <div class="section__title--jp">よくあるご質問</div>
         </h2>
         <div class="accordion">
             <div class="accordion__panel">
@@ -247,12 +249,20 @@
                 <div class="cta__price">税込 4,000円</div>
             </div>
             <div class="cta__button">
-                <div class="button button--primary">オンラインショップへ</div>
-                <div class="button button--secondary">購入する</div>
+                <a href="#">
+                    <div class="button button--primary">オンラインショップへ</div>
+                </a>
+                <form action="/cart/" method="post">
+                    <button class="button button--secondary" type="submit">購入する</button>
+                </form>
             </div>
         </div>
     </div>
 
+    <!-- back-to-top -->
+    <button class="back-to-top">
+        <img src="/assets/image/back_to_top_01.svg" alt="">
+    </button>
     <!-- footer -->
     <footer class="footer">
         <div class="footer__container">
@@ -261,13 +271,13 @@
             </div>
             <ul class="footer__nav">
                 <li class="footer__nav--item">
-                    <a href="">会社概要</a>
+                    <a href="/company/">会社概要</a>
                 </li>
                 <li class="footer__nav--item">
-                    <a href="">個人情報保護ポリシー</a>
+                    <a href="/privacy-policy/">個人情報保護ポリシー</a>
                 </li>
                 <li class="footer__nav--item">
-                    <a href="">お問い合わせ</a>
+                    <a href="/contact/">お問い合わせ</a>
                 </li>
             </ul>
             <small class="footer__copyright">&copy; 2023 Kira-meki Inc. All rights reserved.</small>

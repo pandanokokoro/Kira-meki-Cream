@@ -10,10 +10,10 @@ $('.slide').slick({
     dots: true,
     arrows: true,
     nextArrow: '<img src="/assets/image/slide_arrow_right_01.svg" class="slide-arrow next-arrow">',
-    prevArrow: '<img src="/assets/image/slide_arrow_left_01.svg" class="prev-arrow">',
-    fade: true,
-    // slidesToShow: 3,
-    slidesToScroll: 5,
+    prevArrow: '<img src="/assets/image/slide_arrow_left_01.svg" class="slide-arrow prev-arrow">',
+    fade: false,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     responsive: [
         {
             breakpoint: 767,
@@ -24,3 +24,16 @@ $('.slide').slick({
         }
     ]
 });
+
+//スクロールイベントで表示/非表示を切り替え
+$(window).on("scroll", function() {
+    if ($(window).scrollTop() > 400) {
+        $(".back-to-top").fadeIn();
+    } else {
+        $(".back-to-top").fadeOut();
+    }
+})
+//スムーススクロールでトップに戻る
+$(".back-to-top").on("click", function() {
+    $("html, body").animate({ scrollTop: 0 }, 500);
+})

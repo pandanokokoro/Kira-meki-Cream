@@ -197,7 +197,7 @@ component > section-title
         margin-bottom: vw(4);
         @include mq() {
             font-size: mvw(45);
-            margin-bottom: mvw(8);
+            margin-bottom: mvw(13);
         }
     }
     &--jp {
@@ -251,7 +251,8 @@ component > cta
         color: $blacksecond;
         margin-bottom: vw(5);
         @include mq() {
-            font-size: mvw(18);
+            font-size: mvw(24);
+            margin-bottom: mvw(8);
         }
     }
     &__price {
@@ -261,7 +262,7 @@ component > cta
         margin-bottom: vw(20);
         @include mq() {
             margin-bottom: 0;
-            font-size: mvw(14);
+            font-size: mvw(16);
             text-align: left;
         }
     }
@@ -291,7 +292,7 @@ component > accordion-panel
     @include mq() {
         width: 100%;
         max-width: mvw(600);
-        margin: 0 auto mvw(24);
+        margin: 0 auto mvw(28);
     }
 }
 .accordion__header {
@@ -299,7 +300,7 @@ component > accordion-panel
     cursor: pointer;
     display: flex;
     @include mq() {
-        padding: mvw(10) mvw(24) mvw(10);
+        padding: mvw(25) mvw(24) mvw(24);
         align-items: center;
         line-height: 1;
     }
@@ -308,6 +309,8 @@ component > accordion-panel
     font-family: $font-en1;
     font-size: vw(16);
     margin-right: vw(12);
+    flex-shrink: 0;
+    width: fit-content;
     @include mq() {
         font-size: mvw(18);
         margin-right: mvw(16);
@@ -322,8 +325,9 @@ component > accordion-panel
     }
 }
 .accordion__header-icon img {
-    width: vw(10);
+    width: fit-content;
     height: vw(6.5);
+    flex-shrink: 0;
     @include mq() {
         width: mvw(12);
         height: mvw(7.7);
@@ -348,9 +352,11 @@ component > accordion-panel
     font-family: $font-en1;
     font-size: vw(16);
     margin-right: vw(16);
+    flex-shrink: 0;
+    width: fit-content;
     @include mq() {
         font-size: mvw(18);
-        margin-right: mvw(28);
+        margin-right: mvw(15);
     }
 }
 .accordion__content-text {
@@ -375,7 +381,7 @@ header
     @include mq() {
         background-image: url(/assets/image/main_visula_pc_01.jpg);
         width: 100%;
-        height: mvw(750);
+        height: mvw(720);
         padding-top: mvw(32);
         margin-bottom: 0;
         object-fit: cover;
@@ -403,6 +409,11 @@ title
 }
 .title__container {
     padding: 0 vw(23);
+    @include mq(md) {
+        max-width: mvw(1100);
+        margin: 0 auto;
+        padding: mvw(103) 0 0 mvw(20);
+    }
 }
 .title__main {
     font-size: vw(41);
@@ -441,18 +452,19 @@ mass
 }
 .mass__container {
     @include mq() {
-        max-width: 100%;
-        margin: 0 mvw(100);
+        max-width: mvw(1015);
+        margin: 0 auto;
         display: grid;
         justify-content: end;
 
     }
 }
 .mass__title {
-    text-align: left;
-    margin-bottom: vw(20);
+    text-align: center;
+    margin-bottom: vw(15);
     @include mq() {
-        margin-bottom: mvw(24);
+        text-align: left;
+        margin-bottom: mvw(17);
     }
 }
 .mass__maintitle {
@@ -486,13 +498,15 @@ voices
 */
 .voices {
     padding: {
-        top: vw(50);
+        top: vw(55);
         bottom: vw(50);
     }
     @include mq() {
         padding: {
-            top: mvw(80);
+            top: mvw(88);
             bottom: mvw(80);
+            left: mvw(10);
+            right: mvw(10);
         }
     }
 }
@@ -503,8 +517,18 @@ voices
 .slide {
     margin: 0 auto;
     @include mq() {
-        display: flex;
-        justify-content: space-between;
+        // max-width: mvw(1156);
+        
+    }
+}
+
+.slide-container {
+    @include mq() {
+        max-width: mvw(1156);
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        padding: 0 mvw(40);
     }
 }
 .slide-item {
@@ -514,10 +538,9 @@ voices
     padding: vw(28) vw(15);
     margin: 0 vw(55) vw(10);
     @include mq() {
-        width: calc((100% - mvw(20)) / 3);
         height: mvw(388);
         padding: mvw(40) mvw(16) mvw(4);
-        margin: 0;
+        margin: 0 mvw(45);
     }
 }
 .prev-arrow {
@@ -528,8 +551,11 @@ voices
     height: vw(32);
     z-index: 10;
     @include mq() {
+        cursor: pointer;
         width: mvw(48);
         height: mvw(48);
+        left: mvw(-40);
+        transform: translateY(mvw(-22));
     }
 }
 .next-arrow {
@@ -539,24 +565,37 @@ voices
     width: vw(32);
     height: vw(32);
     @include mq() {
+        cursor: pointer;
         width: mvw(48);
         height: mvw(48);
+        right: mvw(-40);
+        transform: translateY(mvw(-22));
+    }
+}
+
+.slick-dots {
+    @include mq() {
+        bottom: mvw(-35);
     }
 }
 .slick-dots li {
     width: vw(8);
+    @include mq(md) {
+        width: mvw(8);
+    }
 }
 .slick-dots li button::before {
     font-size: vw(9);
     color: $palegrey;
     opacity: 1;
     @include mq() {
-        font-size: mvw(9);
+        font-size: mvw(12);
     }
 }
 .slick-dots li.slick-active button:before{
     color: $mintgreen;
 }
+
 
 .slide-item__head {
     margin-bottom: vw(20);
@@ -607,7 +646,7 @@ faq
     }
     @include mq() {
         padding: {
-            top: mvw(80);
+            top: mvw(53);
         }
     }
 }
@@ -615,8 +654,27 @@ faq
     padding: vw(37) vw(16) vw(32);
     margin-bottom: vw(50);
     @include mq() {
-        padding: mvw(40) mvw(16);
+        padding: 0 mvw(16) mvw(40);
         margin-bottom: mvw(48);
+    }
+}
+
+// back-to-top
+//----------------------------
+.back-to-top {
+    width: mvw(40);
+    height: mvw(40);
+    position: sticky;
+    bottom: 10px;
+    left: 90%;
+    transform: translateY(-100%);
+    cursor: pointer;
+    z-index: 10;
+    &:hover {
+        opacity: .6;
+    }
+    @include mq() {
+        transform: translateY(-60%);
     }
 }
 
@@ -645,12 +703,16 @@ footer
         align-items: center;
     }
 }
-.footer__title {
+.footer
+
+.footer__title img{
+    display: block;
     width: vw(166);
     margin: 0 auto;
     margin-bottom: vw(24);
     @include mq() {
         width: mvw(190);
+        height: mvw(40);
         margin: 0;
     }
 }
@@ -664,6 +726,13 @@ footer
         font-size: mvw(14);
         gap: mvw(32);
         margin: 0;
+    }
+}
+.footer__nav--item {
+    @include mq() {
+        &:hover {
+            opacity: .6;
+        }
     }
 }
 .footer__copyright {
