@@ -537,7 +537,7 @@ voices
     @include mq() {
         margin: 0 auto;
         position: relative;
-        padding: 0 mvw(40);
+        padding: 0 mvw(70);
     }
 }
 .slide-item {
@@ -547,7 +547,8 @@ voices
     padding: vw(28) vw(15);
     margin: 0 vw(55) vw(10);
     @include mq() {
-        max-width: mvw(300);
+        width: mvw(315);
+        // max-width: mvw(300);
         height: mvw(388);
         padding: mvw(40) mvw(16) mvw(4);
         margin: {
@@ -677,22 +678,18 @@ faq
 // back-to-top
 //----------------------------
 .back-to-top__container {
-    margin: 0 auto;
+    margin: 12px auto 0;
     display: flex;
     justify-content: flex-end;
-    padding-right: vw(16);
-    height: fit-content;
     position: sticky;
-    // bottom: 20px;
-    left: 0;
+    bottom: 20px;
+    padding-right: mvw(16);
     @include mq() {
-        max-width: mvw(1231);
+        max-width: mvw(1200);
     }
 }
-
 .back-to-top__button {
     display: block;
-    width: 40px;
     cursor: pointer;
     z-index: 10;
     &:hover {
@@ -700,9 +697,8 @@ faq
     }
 }
 .back-to-top__button img {
-    vertical-align: bottom;
+    display: block;
 }
-
 /*!
 footer
 ------------------------------
@@ -723,7 +719,7 @@ footer
     @include mq() {
         display: flex;
         justify-content: center;
-        gap: mvw(158);
+        gap: mvw(181);
         align-items: center;
     }
 }
@@ -747,7 +743,7 @@ footer
     margin-bottom: vw(22);
     @include mq() {
         font-size: mvw(14);
-        gap: mvw(53);
+        gap: mvw(32);
         margin: 0;
     }
 }

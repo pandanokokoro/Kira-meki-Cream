@@ -15,12 +15,14 @@ $('.slide').slick({
     fade: false,
     slidesToShow: 3,
     slidesToScroll: 3,
+    variableWidth: true,
     responsive: [
         {
             breakpoint: 767,
             settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                variableWidth: false,
             }
         }
     ]

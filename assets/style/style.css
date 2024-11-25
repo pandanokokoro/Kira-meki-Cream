@@ -490,7 +490,7 @@ voices
   .slide-container {
     margin: 0 auto;
     position: relative;
-    padding: 0 min(3.3333333333vw, 2.5rem);
+    padding: 0 min(5.8333333333vw, 4.375rem);
   }
 }
 
@@ -503,7 +503,7 @@ voices
 }
 @media screen and (min-width: 768px) {
   .slide-item {
-    max-width: min(25vw, 18.75rem);
+    width: min(26.25vw, 19.6875rem);
     height: min(32.3333333333vw, 24.25rem);
     padding: min(3.3333333333vw, 2.5rem) min(1.3333333333vw, 1rem) min(0.3333333333vw, 0.25rem);
     margin-left: min(1.25vw, 0.9375rem);
@@ -659,23 +659,21 @@ faq
 }
 
 .back-to-top__container {
-  margin: 0 auto;
+  margin: 12px auto 0;
   display: flex;
   justify-content: flex-end;
-  padding-right: 4.1025641026vw;
-  height: fit-content;
   position: sticky;
-  left: 0;
+  bottom: 20px;
+  padding-right: min(1.3333333333vw, 1rem);
 }
 @media screen and (min-width: 768px) {
   .back-to-top__container {
-    max-width: min(102.5833333333vw, 76.9375rem);
+    max-width: min(100vw, 75rem);
   }
 }
 
 .back-to-top__button {
   display: block;
-  width: 40px;
   cursor: pointer;
   z-index: 10;
 }
@@ -684,7 +682,7 @@ faq
 }
 
 .back-to-top__button img {
-  vertical-align: bottom;
+  display: block;
 }
 
 /*!
@@ -712,7 +710,7 @@ footer
   .footer__container {
     display: flex;
     justify-content: center;
-    gap: min(13.1666666667vw, 9.875rem);
+    gap: min(15.0833333333vw, 11.3125rem);
     align-items: center;
   }
 }
@@ -742,7 +740,7 @@ footer
 @media screen and (min-width: 768px) {
   .footer__nav {
     font-size: min(1.1666666667vw, 0.875rem);
-    gap: min(4.4166666667vw, 3.3125rem);
+    gap: min(2.6666666667vw, 2rem);
     margin: 0;
   }
 }
