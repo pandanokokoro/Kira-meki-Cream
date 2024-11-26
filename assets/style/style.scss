@@ -308,6 +308,7 @@ component > accordion-panel
     padding: vw(20) vw(16) vw(13);
     cursor: pointer;
     display: flex;
+    align-items: center;
     @include mq() {
         padding: mvw(24) mvw(24) mvw(24);
         align-items: center;
@@ -333,14 +334,13 @@ component > accordion-panel
         margin-right: auto;
     }
 }
-.accordion__header-icon img {
-    width: fit-content;
+.accordion__header-icon {
+    width: vw(10);
     height: vw(6.5);
     flex-shrink: 0;
     @include mq() {
-        width: mvw(12);
-        height: mvw(7.7);
-        vertical-align: middle;
+        width: mvw(11.6);
+        height: mvw(7.4);
         margin-left: auto;
     }
 }
@@ -685,7 +685,7 @@ faq
     bottom: 20px;
     padding-right: mvw(16);
     @include mq() {
-        max-width: mvw(1200);
+        max-width: mvw(1235);
     }
 }
 .back-to-top__button {
@@ -698,6 +698,12 @@ faq
 }
 .back-to-top__button img {
     display: block;
+    width: vw(40);
+    height: vw(40);
+    @include  mq(){
+        width: mvw(40);
+        height: mvw(40);
+    }
 }
 /*!
 footer

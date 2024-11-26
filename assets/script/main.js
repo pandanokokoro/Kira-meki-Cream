@@ -18,7 +18,7 @@ $('.slide').slick({
     variableWidth: true,
     responsive: [
         {
-            breakpoint: 767,
+            breakpoint: 767.9,
             settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

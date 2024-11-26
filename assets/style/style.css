@@ -206,6 +206,7 @@ component > accordion-panel
   padding: 5.1282051282vw 4.1025641026vw 3.3333333333vw;
   cursor: pointer;
   display: flex;
+  align-items: center;
 }
 @media screen and (min-width: 768px) {
   .accordion__header {
@@ -240,16 +241,15 @@ component > accordion-panel
   }
 }
 
-.accordion__header-icon img {
-  width: fit-content;
+.accordion__header-icon {
+  width: 2.5641025641vw;
   height: 1.6666666667vw;
   flex-shrink: 0;
 }
 @media screen and (min-width: 768px) {
-  .accordion__header-icon img {
-    width: min(1vw, 0.75rem);
-    height: min(0.6416666667vw, 0.48125rem);
-    vertical-align: middle;
+  .accordion__header-icon {
+    width: min(0.9666666667vw, 0.725rem);
+    height: min(0.6166666667vw, 0.4625rem);
     margin-left: auto;
   }
 }
@@ -668,7 +668,7 @@ faq
 }
 @media screen and (min-width: 768px) {
   .back-to-top__container {
-    max-width: min(100vw, 75rem);
+    max-width: min(102.9166666667vw, 77.1875rem);
   }
 }
 
@@ -683,6 +683,14 @@ faq
 
 .back-to-top__button img {
   display: block;
+  width: 10.2564102564vw;
+  height: 10.2564102564vw;
+}
+@media screen and (min-width: 768px) {
+  .back-to-top__button img {
+    width: min(3.3333333333vw, 2.5rem);
+    height: min(3.3333333333vw, 2.5rem);
+  }
 }
 
 /*!
