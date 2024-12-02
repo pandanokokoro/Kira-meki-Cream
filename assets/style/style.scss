@@ -21,7 +21,7 @@ $breakpoint-lg: $pc-content-width;
 
 // 本番用か否か？本番用の場合は1にする。
 // 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
-$production: 0;
+$production: 1;
 
 
 //-----------------------------------------------------
@@ -207,6 +207,7 @@ component > section-title
     &-jp-text {
         font-size: vw(16);
         font-weight: 600;
+        letter-spacing: 0.05em;
         @include mq() {
             font-size: mvw(20);
         }
@@ -283,10 +284,8 @@ component > cta
         }
     }
 }
-.cta--second {
-    @include mq() {
-        margin-bottom: 0;
-    }
+.cta-second {
+    margin-bottom: 0;
 }
 
 /*!
@@ -296,8 +295,8 @@ component > accordion-panel
 .accordion__panel {
     background-color: $white;
     font-weight: 500;
-    line-height: 1.8;
-    margin-bottom: vw(22.7);
+    line-height: 1.866666666;
+    margin-bottom: vw(20);
     @include mq() {
         width: 100%;
         max-width: mvw(600);
@@ -305,7 +304,7 @@ component > accordion-panel
     }
 }
 .accordion__header {
-    padding: vw(19.2) vw(16) vw(13);
+    padding: vw(16) vw(16) vw(17);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -313,6 +312,7 @@ component > accordion-panel
         padding: mvw(24) mvw(24) mvw(24);
         align-items: center;
         line-height: 1;
+        margin-bottom: mvw(14);
     }
 }
 .accordion__header-question {
@@ -351,15 +351,17 @@ component > accordion-panel
 }
 .accordion__content {
     display: none;
+    margin-top: vw(-4);
+
 }
 .accordion__content-active {
     display: block;
 }
 .accordion__content-container {
     display: flex;
-    padding: 0 vw(16) vw(33);
+    padding: 0 vw(16) vw(30);
     @include mq() {
-        padding: 0 mvw(24) mvw(24) mvw(26);
+        padding: 0 mvw(24) mvw(20) mvw(26);
     }
 }
 .accordion__content-answer {
@@ -403,7 +405,7 @@ component > accordion-panel
 }
 .header__logo img {
     display: block;
-    width: vw(143);
+    width: vw(139);
     height: vw(30);
     margin: 0 auto;
     @include mq() {
@@ -426,7 +428,7 @@ component > accordion-panel
     @include mq(md) {
         max-width: mvw(1100);
         margin: 0 auto;
-        padding: mvw(103) 0 0 mvw(20);
+        padding: mvw(205) 0 0 mvw(22);
     }
     & span {
         display: block;
@@ -447,9 +449,15 @@ component > accordion-panel
 .title__main-col1 {
     margin-bottom: vw(11);
     margin-top: vw(2);
+    @include mq() {
+        margin-bottom: mvw(18);
+    }
 }
 .title__main-col2 {
     margin-bottom: vw(13);
+    @include mq() {
+        margin-bottom: mvw(16);
+    }
 }
 .title__sub {
     font-size: vw(20);
@@ -505,7 +513,7 @@ component > accordion-panel
     margin-bottom: vw(7);
     @include mq() {
         font-size: mvw(38);
-        margin-bottom: mvw(8);
+        margin-bottom: mvw(6);
     }
 }
 .mass__subtitle {
@@ -517,7 +525,7 @@ component > accordion-panel
 }
 .mass__text {
     font-size: vw(14);
-    line-height: 2.2;
+    line-height: 2.28571428571;
     @include mq() {
         font-size: mvw(14);
         width: mvw(429);
@@ -569,13 +577,13 @@ component > accordion-panel
     padding: vw(28) vw(15);
     margin: 0 vw(55) vw(10);
     @include mq() {
-        width: mvw(315);
+        width: mvw(311);
         // max-width: mvw(300);
         height: mvw(388);
-        padding: mvw(40) mvw(16) mvw(4);
+        padding: mvw(40) mvw(27) mvw(4);
         margin: {
-            left: mvw(15);
-            right: mvw(19);
+            left: mvw(21);
+            right: mvw(15);
             bottom: mvw(5)
         };
 
@@ -584,7 +592,7 @@ component > accordion-panel
 .prev-arrow {
     position: absolute;
     top: 44%;
-    left: mvw(16);
+    left: vw(16);
     width: vw(32);
     height: vw(32);
     z-index: 10;
@@ -593,7 +601,6 @@ component > accordion-panel
         width: mvw(48);
         height: mvw(48);
         left: mvw(-78);
-        transform: translateY(mvw(-22));
     }
 }
 .next-arrow {
@@ -607,13 +614,12 @@ component > accordion-panel
         width: mvw(48);
         height: mvw(48);
         right: mvw(-78);
-        transform: translateY(mvw(-22));
     }
 }
 
 .slick-dots {
-    bottom: mvw(-22);
-    left: mvw(-4);
+    bottom: vw(-22);
+    left: vw(-4);
     @include mq() {
         bottom: mvw(-35);
     }
@@ -625,7 +631,7 @@ component > accordion-panel
     }
 }
 .slick-dots li button::before {
-    font-size: vw(9);
+    font-size: vw(11);
     color: $palegrey;
     opacity: 1;
     @include mq() {
@@ -636,7 +642,7 @@ component > accordion-panel
     color: $mintgreen;
 }
 .slide-item__head {
-    margin-bottom: vw(20);
+    margin-bottom: vw(16);
     @include mq() {
         margin-bottom: mvw(16);
     }
@@ -645,6 +651,7 @@ component > accordion-panel
     display: flex;
     justify-content: center;
     margin-bottom: vw(8);
+    padding-left: 10px;
     @include mq() {
         margin-bottom: mvw(8);
     }
@@ -689,11 +696,11 @@ component > accordion-panel
     }
 }
 .accordion {
-    padding: 0 vw(16) vw(11.4);
-    margin-bottom: vw(50);
+    padding: 0 vw(16) vw(13);
+    margin-bottom: vw(47);
     @include mq() {
-        padding: 0 mvw(16) mvw(12);
-        margin-bottom: mvw(48);
+        padding: 0 mvw(16) mvw(17);
+        margin-bottom: mvw(50);
     }
 }
 
@@ -706,9 +713,10 @@ component > accordion-panel
     justify-content: flex-end;
     position: sticky;
     bottom: 20px;
-    padding-right: mvw(16);
+    padding-right: vw(16);
     @include mq() {
-        max-width: mvw(1235);
+        max-width: mvw(1230);
+        margin-top: mvw(8);
     }
 }
 .back-to-top__button {
@@ -748,7 +756,7 @@ component > accordion-panel
     @include mq() {
         display: flex;
         justify-content: center;
-        gap: mvw(181);
+        gap: mvw(153);
         align-items: center;
     }
 }
@@ -759,7 +767,7 @@ component > accordion-panel
     margin-bottom: vw(33);
     margin-top: vw(5);
     @include mq() {
-        width: mvw(190);
+        width: mvw(185);
         height: mvw(40);
         margin: 0;
     }
@@ -774,6 +782,7 @@ component > accordion-panel
         font-size: mvw(14);
         gap: mvw(32);
         margin: 0;
+        padding-left: mvw(55);
     }
 }
 .footer__nav-item {
@@ -787,5 +796,7 @@ component > accordion-panel
     font-size: vw(11);
     @include mq() {
         font-size: mvw(12);
+        margin-top: mvw(4);
+        padding-left: mvw(2);
     }
 }
