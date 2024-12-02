@@ -21,7 +21,7 @@ $breakpoint-lg: $pc-content-width;
 
 // 本番用か否か？本番用の場合は1にする。
 // 0の場合はpxで出力される。パーフェクトピクセルで合わせる時に便利。
-$production: 1;
+$production: 0;
 
 
 //-----------------------------------------------------
@@ -192,7 +192,7 @@ component > section-title
     @include mq() {
         margin-bottom: mvw(40);
     }
-    &--en {
+    &-en-text {
         font-family: $font-en1;
         font-size: vw(30);
         font-weight: 700;
@@ -204,12 +204,15 @@ component > section-title
             margin-bottom: mvw(13);
         }
     }
-    &--jp {
+    &-jp-text {
         font-size: vw(16);
         font-weight: 600;
         @include mq() {
             font-size: mvw(20);
         }
+    }
+    & span {
+        display: block;
     }
 }
 /*!
@@ -253,7 +256,7 @@ component > cta
         font-weight: 600;
         letter-spacing: 0.1em;
         color: $blacksecond;
-        margin-bottom: vw(5);
+        margin-bottom: vw(7);
         @include mq() {
             font-size: mvw(24);
             margin-bottom: mvw(8);
@@ -294,10 +297,7 @@ component > accordion-panel
     background-color: $white;
     font-weight: 500;
     line-height: 1.8;
-    margin-bottom: vw(21);
-    &:nth-of-type(1) .accordion__content {
-        display: block;
-    }
+    margin-bottom: vw(22.7);
     @include mq() {
         width: 100%;
         max-width: mvw(600);
@@ -305,7 +305,7 @@ component > accordion-panel
     }
 }
 .accordion__header {
-    padding: vw(20) vw(16) vw(13);
+    padding: vw(19.2) vw(16) vw(13);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -321,6 +321,7 @@ component > accordion-panel
     margin-right: vw(12);
     flex-shrink: 0;
     width: fit-content;
+    align-self: baseline;
     @include mq() {
         font-size: mvw(18);
         margin-right: mvw(16);
@@ -338,6 +339,7 @@ component > accordion-panel
     width: vw(10);
     height: vw(6.5);
     flex-shrink: 0;
+    align-self: baseline;
     @include mq() {
         width: mvw(11.6);
         height: mvw(7.4);
@@ -349,6 +351,9 @@ component > accordion-panel
 }
 .accordion__content {
     display: none;
+}
+.accordion__content-active {
+    display: block;
 }
 .accordion__content-container {
     display: flex;
@@ -375,7 +380,7 @@ component > accordion-panel
     }
 }
 /*!
-header
+ヘッダー
 ------------------------------
 */
 .header {
@@ -407,11 +412,11 @@ header
     }
 }
 /*!
-title
+タイトル
 ------------------------------
 */
 .title {
-    margin-top: vw(360);
+    margin-top: vw(369);
     @include mq() {
         margin-top: mvw(100);
     }
@@ -423,14 +428,28 @@ title
         margin: 0 auto;
         padding: mvw(103) 0 0 mvw(20);
     }
+    & span {
+        display: block;
+    }
 }
 .title__main {
     font-size: vw(41);
     font-family: $font-en2;
     letter-spacing: 0.3em;
+    line-height: 1;
     @include mq() {
         font-size: mvw(50);
     }
+    & span {
+        display: block;
+    }
+}
+.title__main-col1 {
+    margin-bottom: vw(11);
+    margin-top: vw(2);
+}
+.title__main-col2 {
+    margin-bottom: vw(13);
 }
 .title__sub {
     font-size: vw(20);
@@ -440,7 +459,7 @@ title
     }
 }
 /*!
-mass
+広告エリア
 ------------------------------
 */
 .mass {
@@ -475,12 +494,15 @@ mass
         text-align: left;
         margin-bottom: mvw(17);
     }
+    & span {
+        display: block;
+    }
 }
 .mass__maintitle {
     font-family: $font-en1;
     font-size: vw(30);
     font-weight: 700;
-    margin-bottom: vw(8);
+    margin-bottom: vw(7);
     @include mq() {
         font-size: mvw(38);
         margin-bottom: mvw(8);
@@ -502,7 +524,7 @@ mass
     }
 }
 /*!
-voices
+お客様の声
 ------------------------------
 */
 .voices {
@@ -521,7 +543,7 @@ voices
     }
 }
 
-/*! slide-item
+/*! スライド
 ------------------------------
 */
 .slide {
@@ -561,7 +583,7 @@ voices
 }
 .prev-arrow {
     position: absolute;
-    top: 49%;
+    top: 44%;
     left: mvw(16);
     width: vw(32);
     height: vw(32);
@@ -576,7 +598,7 @@ voices
 }
 .next-arrow {
     position: absolute;
-    top: 49%;
+    top: 44%;
     right: vw(16);
     width: vw(32);
     height: vw(32);
@@ -652,7 +674,7 @@ voices
 }
 
 /*!
-faq
+よくあるご質問
 ------------------------------
 */
 .faq {
@@ -667,7 +689,7 @@ faq
     }
 }
 .accordion {
-    padding: 0 vw(16) vw(16);
+    padding: 0 vw(16) vw(11.4);
     margin-bottom: vw(50);
     @include mq() {
         padding: 0 mvw(16) mvw(12);
@@ -675,8 +697,9 @@ faq
     }
 }
 
-// back-to-top
+// トップへ戻る
 //----------------------------
+//
 .back-to-top__container {
     margin: 12px auto 0;
     display: flex;
@@ -706,7 +729,7 @@ faq
     }
 }
 /*!
-footer
+フッター
 ------------------------------
 */
 .footer {
@@ -753,7 +776,7 @@ footer
         margin: 0;
     }
 }
-.footer__nav--item {
+.footer__nav-item {
     @include mq() {
         &:hover {
             opacity: .6;
@@ -761,7 +784,7 @@ footer
     }
 }
 .footer__copyright {
-    font-size: var(11);
+    font-size: vw(11);
     @include mq() {
         font-size: mvw(12);
     }

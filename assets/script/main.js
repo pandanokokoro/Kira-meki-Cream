@@ -1,7 +1,6 @@
 // アコーディオン
 $('.accordion__header').click(function() {
     $(this).next().slideToggle();
-    // $(this).find(".accordion__header-icon img").toggleClass('active');
     $(this).find("img").toggleClass('active');
 });
 
@@ -10,8 +9,8 @@ $('.slide').slick({
     infinite: true,
     dots: true,
     arrows: true,
-    nextArrow: '<img src="/assets/image/slide_arrow_right_01.svg" class="slide-arrow next-arrow">',
-    prevArrow: '<img src="/assets/image/slide_arrow_left_01.svg" class="slide-arrow prev-arrow">',
+    nextArrow: '<img src="/assets/image/slide_arrow_right.svg" class="slide-arrow next-arrow">',
+    prevArrow: '<img src="/assets/image/slide_arrow_left.svg" class="slide-arrow prev-arrow">',
     fade: false,
     slidesToShow: 3,
     slidesToScroll: 3,
