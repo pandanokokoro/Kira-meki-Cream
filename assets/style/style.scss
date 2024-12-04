@@ -312,7 +312,7 @@ component > accordion-panel
         padding: mvw(24) mvw(24) mvw(24);
         align-items: center;
         line-height: 1;
-        margin-bottom: mvw(14);
+        margin-bottom: mvw(18);
     }
 }
 .accordion__header-question {
@@ -352,7 +352,6 @@ component > accordion-panel
 .accordion__content {
     display: none;
     margin-top: vw(-4);
-
 }
 .accordion__content-active {
     display: block;
@@ -557,7 +556,7 @@ component > accordion-panel
 .slide {
     margin: 0 auto;
     @include mq() {
-        max-width: 1000px;
+        max-width: 980px;
         display: flex;
 
     }
@@ -577,16 +576,14 @@ component > accordion-panel
     padding: vw(28) vw(15);
     margin: 0 vw(55) vw(10);
     @include mq() {
-        width: mvw(311);
-        // max-width: mvw(300);
+        width: mvw(300);
         height: mvw(388);
-        padding: mvw(40) mvw(27) mvw(4);
+        padding: mvw(40) mvw(16) mvw(10);
         margin: {
-            left: mvw(21);
+            left: mvw(26);
             right: mvw(15);
             bottom: mvw(5)
         };
-
     }
 }
 .prev-arrow {
@@ -600,7 +597,7 @@ component > accordion-panel
         cursor: pointer;
         width: mvw(48);
         height: mvw(48);
-        left: mvw(-78);
+        left: mvw(-88);
     }
 }
 .next-arrow {
@@ -613,7 +610,7 @@ component > accordion-panel
         cursor: pointer;
         width: mvw(48);
         height: mvw(48);
-        right: mvw(-78);
+        right: mvw(-88);
     }
 }
 
@@ -621,7 +618,8 @@ component > accordion-panel
     bottom: vw(-22);
     left: vw(-4);
     @include mq() {
-        bottom: mvw(-35);
+        bottom: mvw(-39);
+        left: mvw(-4);
     }
 }
 .slick-dots li {
@@ -653,6 +651,7 @@ component > accordion-panel
     margin-bottom: vw(8);
     padding-left: 10px;
     @include mq() {
+        margin-right: mvw(10);
         margin-bottom: mvw(8);
     }
 }
@@ -677,6 +676,7 @@ component > accordion-panel
     line-height: 2;
     @include mq() {
         font-size: mvw(16);
+        line-height: 1.75;
     }
 }
 
@@ -699,8 +699,8 @@ component > accordion-panel
     padding: 0 vw(16) vw(13);
     margin-bottom: vw(47);
     @include mq() {
-        padding: 0 mvw(16) mvw(17);
-        margin-bottom: mvw(50);
+        padding: 0 mvw(16) mvw(15);
+        margin-bottom: mvw(48);
     }
 }
 
@@ -715,8 +715,8 @@ component > accordion-panel
     bottom: 20px;
     padding-right: vw(16);
     @include mq() {
-        max-width: mvw(1230);
-        margin-top: mvw(8);
+        max-width: mvw(1323);
+        margin-top: mvw(7);
     }
 }
 .back-to-top__button {
@@ -781,8 +781,8 @@ component > accordion-panel
     @include mq() {
         font-size: mvw(14);
         gap: mvw(32);
-        margin: 0;
-        padding-left: mvw(55);
+        margin: mvw(2) 0 0;
+        padding-left: mvw(57);
     }
 }
 .footer__nav-item {
