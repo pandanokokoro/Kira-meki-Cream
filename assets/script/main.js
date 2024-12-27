@@ -6,7 +6,7 @@ $('.accordion__header').click(function() {
 
 // カルーセル
 $('.slide').slick({
-    infinite: true,
+    infinite: false,
     dots: true,
     arrows: true,
     nextArrow: '<img src="/assets/image/slide_arrow_right.svg" class="slide-arrow next-arrow">',
