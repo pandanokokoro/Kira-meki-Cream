@@ -6,14 +6,14 @@ $('.accordion__header').click(function() {
 
 // カルーセル
 $('.slide').slick({
-    infinite: false,
+    infinite: true,
     dots: true,
     arrows: true,
     nextArrow: '<img src="/assets/image/slide_arrow_right.svg" class="slide-arrow next-arrow">',
     prevArrow: '<img src="/assets/image/slide_arrow_left.svg" class="slide-arrow prev-arrow">',
     fade: false,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     variableWidth: true,
     responsive: [
         {

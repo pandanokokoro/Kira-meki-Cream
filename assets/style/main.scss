@@ -312,7 +312,7 @@ component > accordion-panel
         padding: mvw(24) mvw(24) mvw(24);
         align-items: center;
         line-height: 1;
-        margin-bottom: mvw(18);
+        margin-bottom: mvw(15);
     }
 }
 .accordion__header-question {
@@ -556,12 +556,16 @@ component > accordion-panel
 .slide {
     margin: 0 auto;
     @include mq() {
-        max-width: 980px;
+        max-width: mvw(980);
         display: flex;
 
     }
 }
-
+.slick-slider {
+    // @include mq() {
+    //     max-width: 73%;
+    // }
+}
 .slide-container {
     @include mq() {
         margin: 0 auto;
@@ -596,8 +600,8 @@ component > accordion-panel
     @include mq() {
         cursor: pointer;
         width: mvw(48);
-        height: mvw(48);
-        left: mvw(-88);
+        height: 12%;
+        left: -9%;
     }
 }
 .next-arrow {
@@ -609,8 +613,8 @@ component > accordion-panel
     @include mq() {
         cursor: pointer;
         width: mvw(48);
-        height: mvw(48);
-        right: mvw(-88);
+        height: 12%;
+        right: -9%;
     }
 }
 
@@ -700,7 +704,7 @@ component > accordion-panel
     margin-bottom: vw(47);
     @include mq() {
         padding: 0 mvw(16) mvw(15);
-        margin-bottom: mvw(48);
+        margin-bottom: mvw(51);
     }
 }
 
@@ -715,7 +719,7 @@ component > accordion-panel
     bottom: 20px;
     padding-right: vw(16);
     @include mq() {
-        max-width: mvw(1323);
+        max-width: mvw(1320);
         margin-top: mvw(7);
     }
 }
@@ -746,7 +750,7 @@ component > accordion-panel
     padding: vw(24);
     color: $white;
     @include mq() {
-        height: 104px;
+        height: mvw(104);
         padding: mvw(32) mvw(20);
     }
 }
